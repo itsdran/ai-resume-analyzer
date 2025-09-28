@@ -7,5 +7,5 @@ export function formatSize(bytes: number): string {
 
   const value = bytes / Math.pow(k, i);
 
-  return `${value.toFixed(2)} ${sizes[i]}`;
+  return `${value.toFixed(0)} ${sizes[i]}`;
 }
