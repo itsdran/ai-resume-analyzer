@@ -20,8 +20,7 @@ const Upload = () => {
         setFile(file);
     }
 
-    const handleAnalyze = async  ({companyName, jobTitle, jobDescription, file}: 
-    {companyName: string, jobTitle: string, jobDescription: string, file:File}) => {
+    const handleAnalyze = async ({companyName, jobTitle, jobDescription, file}: {companyName: string, jobTitle: string, jobDescription: string, file:File}) => {
         setIsProcessing(true);
 
         setStatusText("Uploading file...");
@@ -60,17 +59,17 @@ const Upload = () => {
             uploadedFile.path,
             prepareInstructions({jobTitle, jobDescription})
         );
-
         if (!feedback) return setStatusText("Error analyzing the resume.");
 
         const feedbackText = typeof feedback.message.content === 'string' 
-            ? feedback.message.content : feedback.message.content[0].text;
+            ? feedback.message.content
+            : feedback.message.content[0].text;
 
         data.feedback = JSON.parse(feedbackText);
         await kv.set(`resume: ${uuid}`, JSON.stringify (data));
         setStatusText("Analysis complete.");
         console.log(data);
-
+        navigate(`/resume/${uuid}`);
     }
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -86,6 +85,7 @@ const Upload = () => {
 
         if (!file) return;
         handleAnalyze({companyName, jobTitle, jobDescription, file});
+
     }
 
     return (
