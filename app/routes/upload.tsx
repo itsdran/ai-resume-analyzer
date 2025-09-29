@@ -9,7 +9,7 @@ import { prepareInstructions } from '~/constants';
 
 const Upload = () => {
 
-    const {auth, isLoading, fs, ai, kv} =usePuterStore();
+    const {auth, isLoading, fs, ai, kv} = usePuterStore();
     const navigate = useNavigate();
 
     const [isProcessing, setIsProcessing] = useState(false);
@@ -66,9 +66,9 @@ const Upload = () => {
             : feedback.message.content[0].text;
 
         data.feedback = JSON.parse(feedbackText);
-        await kv.set(`resume: ${uuid}`, JSON.stringify (data));
+        await kv.set(`resume:${uuid}`, JSON.stringify (data));
         setStatusText("Analysis complete.");
-        console.log(data);
+        console.log('Data from upload.tsx: ', data);
         navigate(`/resume/${uuid}`);
     }
 
