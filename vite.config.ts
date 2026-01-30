@@ -10,7 +10,7 @@ export default defineConfig({
     tsconfigPaths(),
     tailwindcss(),
     reactRouter(),
-    checker({ typescript: true })
+    checker({ typescript: true }) 
   ],
   resolve: {
     alias: {
