@@ -5,10 +5,11 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
+  plugins: [tsconfigPaths(), tailwindcss(), reactRouter()],
   resolve: {
     alias: {
       '~': path.resolve(__dirname, 'app'),
-    }
-  }
+    },
+    extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
+  },
 });
