@@ -1,11 +1,11 @@
 import React, {useState, type FormEvent} from 'react';
 import { useNavigate } from 'react-router';
-import FileUploader from '~/components/FileUploader';
-import Navbar from '~/components/Navbar';
-import { usePuterStore } from '~/lib/puter';
-import {convertPdfToImage} from '~/lib/pdf2img'
-import { generateUUID } from '~/lib/utils';
-import { prepareInstructions } from '~/constants';
+import FileUploader from '../components/FileUploader';
+import Navbar from '../components/Navbar';
+import { usePuterStore } from '../lib/puter';
+import {convertPdfToImage} from '../lib/pdf2img'
+import { generateUUID } from '../lib/utils';
+import { prepareInstructions } from '../constants';
 
 const Upload = () => {
 
