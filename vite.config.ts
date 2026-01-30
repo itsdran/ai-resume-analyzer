@@ -7,6 +7,9 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
   plugins: [tsconfigPaths(), tailwindcss(), reactRouter()],
   resolve: {
+    alias: [
+      { find: '~', replacement: path.resolve(__dirname, 'app') }
+    ],
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   },
 });
